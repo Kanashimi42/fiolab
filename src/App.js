@@ -1,22 +1,21 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
+import Name from './Home';
+import City from './City';
 
 function App() {
-  const fullName = "Барсуков Вячеслав Владимирович";
-  const phoneNumber = "+380637000444";
-  const emailAddress = "barsukov200491@gmail.com";
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <div className="contact-info">
-          <h1>{fullName}</h1>
-          <p>Телефон: {phoneNumber}</p>
-          <p>Email: {emailAddress}</p>
-        </div>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <Routes>
+            <Route path="/" element={<Name />} />
+            <Route path="/city" element={<City />} />
+          </Routes>
+        </header>
+      </div>
+    </Router>
   );
 }
 
